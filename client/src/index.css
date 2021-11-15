@@ -1,3 +1,10 @@
+:root{
+  --blue: #1DA1F2;
+  --black: #14171A;
+  --white: #F5F8FA;
+  --light-grey:#AAB8C2;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +12,73 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,h2,p{
+  margin: 0;
+  padding: 0;
+}
+
+.App{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.App .card{
+  padding: 40px;
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 10px 15px 5px rgba(0,0,0,0.33); 
+  box-shadow: 0px 10px 15px 5px rgba(0,0,0,0.33);
+  height: auto;
+  position: relative;
+ 
+}
+
+.card #twitter-image{
+  border-radius: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+}
+.card #twitter-name{
+  font-size: 22px;
+  margin: 12px;
+}
+.card #twitter-followers{
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 12px;
+  color: var(--light-grey);
+  font-weight: normal;
+}
+.card #twitter-followers-number{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.card #twitter-follow-me{
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  background: var(--blue);
+  padding: 10px 16px;
+  border-radius: 16px;
+  color: var(--white);
+  font-weight: bolder;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+.card #twitter-follow-me:hover{
+  filter: brightness(1.2);
 }

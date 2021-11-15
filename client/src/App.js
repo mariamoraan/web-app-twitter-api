@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios'
 
-class App extends Component {
-  state = {
-    response: {}
-  };
-  
-  componentDidMount() {
-    axios.get('/api/v1/say-something').then((res) => {
-      const response = res.data;
-      this.setState({response});
-    });
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello from the frontend!</h1>
-        <h1>{this.state.response.body}</h1>
+const App = () => {
+  const [twitter, setTwitter] = useState({});
+  useEffect(()=>{
+    fetch('/api/v1/twitter-info')
+    .then((res) => res.json())
+    .then((response)=>setTwitter(response));
+  }, [])
+  return(
+    <div className="App">
+      <div className="card">
+          <img id="twitter-image" src={twitter.image} alt="twitter profile image"/>
+          <h1 id="twitter-name">{twitter ? twitter.name : ''}</h1>
+          <h2 id="twitter-followers">Followers</h2>
+          <h2 id="twitter-followers-number">{twitter ? twitter.followers_number : 0}</h2>
+          <a id="twitter-follow-me">Follow @{twitter ? twitter.username : ''}</a>
       </div>
-    );
-  }
+    </div>
+  )
 }
 
 export default App;
