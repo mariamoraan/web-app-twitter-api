@@ -12,8 +12,6 @@ import path from 'path';
 import dotenv from 'dotenv';
 import api from './routes/routes.js';
 
-import fetch from "node-fetch";
-
 
 // Create a new express application named 'app'
 const app = express();
@@ -49,6 +47,7 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 };
+
 
 // Catch any bad requests
 app.get('*', (req, res) => {
